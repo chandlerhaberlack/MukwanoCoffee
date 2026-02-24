@@ -47,41 +47,62 @@
     animated.forEach(function (el) { observer.observe(el); });
   }
 
-  /* Instagram: fetch latest post URL, then embed via oEmbed */
+  /* Instagram: embed via oEmbed. Use manual post URL first if set (works on localhost); else try API. */
   var instagramContainer = document.getElementById('instagram-embed-container');
   var instagramFallback = document.getElementById('instagram-fallback');
+  var instagramSection = document.getElementById('instagram-section');
   if (instagramContainer) {
     var apiUrl = (typeof window.MUKWANO_INSTAGRAM_API === 'string' && window.MUKWANO_INSTAGRAM_API)
       ? window.MUKWANO_INSTAGRAM_API
       : '/api/instagram-latest';
+    var manualPostUrl = instagramSection && instagramSection.getAttribute('data-instagram-post');
+    var manualUrlTrimmed = manualPostUrl && manualPostUrl.trim();
+    var hasManual = manualUrlTrimmed && manualUrlTrimmed.indexOf('instagram.com/p/') !== -1;
 
-    fetch(apiUrl)
-      .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
-      .then(function (data) { return data && data.url ? data.url : Promise.reject(); })
-      .then(function (postUrl) {
-        return new Promise(function (resolve, reject) {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://api.instagram.com/oembed?url=' + encodeURIComponent(postUrl) + '&omitscript=true&maxwidth=540&callback=instEmbedCallback';
-          window.instEmbedCallback = function (oembed) {
-            if (oembed && oembed.html) {
-              instagramContainer.innerHTML = '<div class="instagram-embed-wrapper flex justify-center">' + oembed.html + '</div>';
-              instagramContainer.querySelector('.instagram-embed-wrapper').classList.remove('instagram-embed-wrapper');
-              if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
-                var ig = document.createElement('script');
-                ig.async = true;
-                ig.src = '//www.instagram.com/embed.js';
-                document.body.appendChild(ig);
-              }
-              resolve();
-            } else reject();
-          };
-          document.head.appendChild(script);
-        });
-      })
-      .catch(function () {
-        instagramContainer.innerHTML = '';
-        if (instagramFallback) instagramFallback.classList.remove('hidden');
+    function showFallback() {
+      instagramContainer.innerHTML = '';
+      if (instagramFallback) instagramFallback.classList.remove('hidden');
+    }
+
+    function embedPost(postUrl) {
+      return new Promise(function (resolve, reject) {
+        var timeout = setTimeout(function () {
+          reject(new Error('timeout'));
+        }, 12000);
+        var callbackName = 'instEmbedCallback_' + Date.now();
+        window[callbackName] = function (oembed) {
+          clearTimeout(timeout);
+          if (oembed && oembed.html) {
+            instagramContainer.innerHTML = '<div class="flex justify-center">' + oembed.html + '</div>';
+            if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+              var ig = document.createElement('script');
+              ig.async = true;
+              ig.src = 'https://www.instagram.com/embed.js';
+              document.body.appendChild(ig);
+            }
+            resolve();
+          } else reject();
+        };
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://api.instagram.com/oembed?url=' + encodeURIComponent(postUrl) + '&omitscript=true&maxwidth=540&callback=' + callbackName;
+        script.onerror = function () { clearTimeout(timeout); reject(new Error('script error')); };
+        document.head.appendChild(script);
       });
+    }
+
+    function tryEmbed(url) {
+      embedPost(url).catch(showFallback);
+    }
+
+    if (hasManual) {
+      tryEmbed(manualUrlTrimmed);
+    } else {
+      fetch(apiUrl)
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+        .then(function (data) { return data && data.url ? data.url : Promise.reject(); })
+        .then(tryEmbed)
+        .catch(showFallback);
+    }
   }
 })();

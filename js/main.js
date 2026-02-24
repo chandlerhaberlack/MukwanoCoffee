@@ -47,7 +47,7 @@
     animated.forEach(function (el) { observer.observe(el); });
   }
 
-  /* Instagram: embed via oEmbed. On Vercel use server proxy to avoid referrer blocking; on localhost fall back to JSONP. */
+  /* Instagram: embed using native iframe (works on Vercel and localhost, no oEmbed/embed.js). */
   var instagramContainer = document.getElementById('instagram-embed-container');
   var instagramFallback = document.getElementById('instagram-fallback');
   var instagramSection = document.getElementById('instagram-section');
@@ -64,52 +64,28 @@
       if (instagramFallback) instagramFallback.classList.remove('hidden');
     }
 
-    function injectEmbedHtml(html) {
-      if (!html) return false;
-      instagramContainer.innerHTML = '<div class="flex justify-center">' + html + '</div>';
-      if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
-        var ig = document.createElement('script');
-        ig.async = true;
-        ig.src = 'https://www.instagram.com/embed.js';
-        document.body.appendChild(ig);
-      }
+    function getShortcode(postUrl) {
+      var match = postUrl && postUrl.match(/instagram\.com\/p\/([^/?]+)/);
+      return match ? match[1] : null;
+    }
+
+    function embedWithIframe(postUrl) {
+      var shortcode = getShortcode(postUrl);
+      if (!shortcode) return false;
+      var embedUrl = 'https://www.instagram.com/p/' + shortcode + '/embed/';
+      instagramContainer.innerHTML =
+        '<div class="flex justify-center">' +
+        '<iframe src="' + embedUrl + '" ' +
+        'class="max-w-[540px] w-full rounded-lg border-0 overflow-hidden shadow-md" ' +
+        'style="height: 630px;" ' +
+        'title="Instagram post"></iframe>' +
+        '</div>';
       return true;
     }
 
-    function embedViaProxy(postUrl) {
-      return fetch('/api/instagram-oembed?url=' + encodeURIComponent(postUrl))
-        .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
-        .then(function (data) {
-          if (data && data.html && injectEmbedHtml(data.html)) return;
-          return Promise.reject();
-        });
-    }
-
-    function embedViaJsonp(postUrl) {
-      return new Promise(function (resolve, reject) {
-        var timeout = setTimeout(function () { reject(new Error('timeout')); }, 12000);
-        var callbackName = 'instEmbedCallback_' + Date.now();
-        window[callbackName] = function (oembed) {
-          clearTimeout(timeout);
-          if (oembed && oembed.html && injectEmbedHtml(oembed.html)) resolve();
-          else reject();
-        };
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://api.instagram.com/oembed?url=' + encodeURIComponent(postUrl) + '&omitscript=true&maxwidth=540&callback=' + callbackName;
-        script.onerror = function () { clearTimeout(timeout); reject(new Error('script error')); };
-        document.head.appendChild(script);
-      });
-    }
-
-    function embedPost(postUrl) {
-      return embedViaProxy(postUrl).catch(function () {
-        return embedViaJsonp(postUrl);
-      });
-    }
-
     function tryEmbed(url) {
-      embedPost(url).catch(showFallback);
+      if (embedWithIframe(url)) return;
+      showFallback();
     }
 
     if (hasManual) {

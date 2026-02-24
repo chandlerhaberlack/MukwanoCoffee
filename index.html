@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mukwano Coffee | Rawlins, Wyoming</title>
+  <meta name="description" content="Change your coffee drinking habit into a coffee tasting experience. Single origin coffee, subscriptions, wholesale. We accept Bitcoin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6B4226',
+            tan: '#C8A882',
+            cream: '#F5F0E8',
+            'warm-white': '#FDFBF7',
+            espresso: '#2C1810',
+            gold: '#D4A04A',
+            sage: '#7A8B6F',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="font-body text-espresso bg-warm-white antialiased">
+  <div id="nav-backdrop" class="fixed inset-0 bg-espresso/50 z-40 hidden md:hidden" aria-hidden="true"></div>
+
+  <!-- Announcement bar -->
+  <div class="announcement-bar bg-tan/80 text-espresso text-center py-2 px-4 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1">
+      <span class="font-medium">Proudly roasted in Rawlins, Wyoming</span>
+      <a href="https://btcpay.sats.coffee/apps/4J23e5VN89CQs7qpyYuzK5J6HXRQ/pos" target="_blank" rel="noopener" class="bitcoin-cta text-[#B8860B] hover:text-[#996F00] font-semibold text-sm">
+        <svg class="bitcoin-icon w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>
+        We accept Bitcoin
+      </a>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-warm-white/95 backdrop-blur border-b border-tan/30">
+    <nav class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16 md:h-18">
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="images/logo.png" alt="Mukwano Coffee" class="h-10 w-10 md:h-12 md:w-12" />
+        <span class="font-heading font-semibold text-primary text-lg md:text-xl">Mukwano Coffee</span>
+      </a>
+      <button id="nav-toggle" type="button" class="md:hidden p-2 rounded-lg text-espresso hover:bg-cream" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div id="nav-menu" class="nav-closed fixed md:relative top-0 right-0 h-full w-72 md:w-auto md:flex md:items-center md:gap-6 bg-cream md:bg-transparent shadow-xl md:shadow-none pt-20 md:pt-0 px-6 md:px-0 transition-transform duration-300 ease-out md:transform-none">
+        <a href="about.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">About</a>
+        <a href="shop.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Shop</a>
+        <a href="subscribe.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Subscribe</a>
+        <a href="find-us.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Find Us</a>
+        <a href="wholesale.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Wholesale</a>
+        <a href="contact.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Contact</a>
+        <a href="https://btcpay.sats.coffee/apps/4J23e5VN89CQs7qpyYuzK5J6HXRQ/pos" target="_blank" rel="noopener" class="nav-bitcoin-link inline-flex items-center gap-1.5 mt-2 md:mt-0">
+          <svg class="bitcoin-icon w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>
+          Pay with Bitcoin
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero: split layout -->
+    <section class="hero-split relative min-h-[90vh] md:min-h-[85vh] flex flex-col md:flex-row">
+      <div class="hero-split__image order-first md:order-last md:w-1/2 min-h-[40vh] md:min-h-0 bg-cover bg-center" style="background-image: url('images/hero.jpg');"></div>
+      <div class="hero-split__content md:w-1/2 flex items-center justify-center bg-cream px-6 py-16 md:py-24 animate-fade-in">
+        <div class="max-w-lg">
+          <img src="images/logo.png" alt="" class="h-24 w-24 md:h-32 md:w-32 mx-auto md:mx-0 mb-6" aria-hidden="true" />
+          <h1 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-espresso leading-tight text-center md:text-left">
+            Change your coffee drinking habit into a coffee tasting experience
+          </h1>
+          <p class="mt-4 text-espresso/90 text-lg text-center md:text-left">Single origin coffee from Rawlins, Wyoming. Ethically sourced, freshly roasted.</p>
+          <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+            <a href="shop.html" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-primary text-warm-white font-semibold hover:bg-espresso transition">Shop Now</a>
+            <a href="subscribe.html" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border-2 border-primary text-espresso font-semibold hover:bg-primary/10 transition">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value props -->
+    <section class="py-16 md:py-24 bg-warm-white animate-on-scroll">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-tan/30 flex items-center justify-center text-primary">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h2 class="font-heading font-semibold text-xl text-espresso mt-4">Ethically Sourced</h2>
+            <p class="mt-2 text-espresso/80 text-sm">From small farms and co-ops in East Africa. Fair trade where it matters.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-tan/30 flex items-center justify-center text-primary">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h2 class="font-heading font-semibold text-xl text-espresso mt-4">Small Batch Roasted</h2>
+            <p class="mt-2 text-espresso/80 text-sm">Roasted in Rawlins to bring out each bean’s unique character.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-tan/30 flex items-center justify-center text-primary">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h2 class="font-heading font-semibold text-xl text-espresso mt-4">Wyoming Made</h2>
+            <p class="mt-2 text-espresso/80 text-sm">Roastery and coffee shop on W Pine St. Coffee trailer in season.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo gallery band -->
+    <section class="gallery-band grid grid-cols-3 gap-0 animate-on-scroll">
+      <div class="aspect-[4/3] md:aspect-[3/2] bg-cover bg-center" style="background-image: url('images/beans2.png');"></div>
+      <div class="aspect-[4/3] md:aspect-[3/2] bg-cover bg-center" style="background-image: url('images/beans3.png');"></div>
+      <div class="aspect-[4/3] md:aspect-[3/2] bg-cover bg-center" style="background-image: url('images/beans4.png');"></div>
+    </section>
+
+    <!-- Featured products -->
+    <section class="py-16 md:py-24 bg-cream animate-on-scroll">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-3xl md:text-4xl text-espresso text-center">Featured Coffee</h2>
+        <p class="mt-2 text-center text-espresso/80">Freshly roasted single origin & blends</p>
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="https://www.mukwanocoffee.com/product-page/ethiopian-coffee" class="card-hover rounded-xl overflow-hidden bg-warm-white border border-tan/30 shadow-sm group" target="_blank" rel="noopener">
+            <div class="aspect-square overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <img src="images/products/ethiopian-sweet-lily.jpg" alt="Ethiopian Sweet Lily" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-medium text-sage uppercase tracking-wide">Roaster's pick</span>
+              <h3 class="font-heading font-semibold text-lg text-espresso mt-1">Ethiopian Sweet Lily</h3>
+              <p class="text-primary font-medium mt-2">$23.50</p>
+            </div>
+          </a>
+          <a href="https://www.mukwanocoffee.com/product-page/el-salvador-pacas-estat-honey-process-bitcoiners-blend" class="card-hover rounded-xl overflow-hidden bg-warm-white border border-tan/30 shadow-sm group" target="_blank" rel="noopener">
+            <div class="aspect-square overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <img src="images/products/bitcoiners-blend.png" alt="Bitcoiners Blend" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-semibold text-lg text-espresso">Bitcoiners Blend</h3>
+              <p class="text-primary font-medium mt-2">$21.21</p>
+            </div>
+          </a>
+          <a href="https://www.mukwanocoffee.com/product-page/rawandan-coffee" class="card-hover rounded-xl overflow-hidden bg-warm-white border border-tan/30 shadow-sm group" target="_blank" rel="noopener">
+            <div class="aspect-square overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <img src="images/products/espresso-blend.jpg" alt="Espresso Blend" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-semibold text-lg text-espresso">Espresso Blend</h3>
+              <p class="text-primary font-medium mt-2">$24.00</p>
+            </div>
+          </a>
+          <a href="https://www.mukwanocoffee.com/product-page/sample-pack" class="card-hover rounded-xl overflow-hidden bg-warm-white border border-tan/30 shadow-sm group" target="_blank" rel="noopener">
+            <div class="aspect-square overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <img src="images/products/sample-pack.jpg" alt="Sample Pack" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-semibold text-lg text-espresso">Sample Pack</h3>
+              <p class="text-primary font-medium mt-2">$23.00</p>
+            </div>
+          </a>
+        </div>
+        <p class="mt-8 text-center">
+          <a href="shop.html" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-warm-white font-medium hover:bg-espresso transition">View all coffee</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Origin story teaser -->
+    <section class="py-16 md:py-24 bg-warm-white animate-on-scroll">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-cover bg-center" style="background-image: url('images/wyoming-landscape.png');"></div>
+          <div>
+            <h2 class="font-heading font-semibold text-2xl md:text-3xl text-espresso">Our Story</h2>
+            <p class="mt-4 text-espresso/90 leading-relaxed">
+              Mukwano Coffee started in Casper, Wyoming, born from friendships in Uganda and a desire to support the families and communities behind our beans. Now operated in Rawlins by Cody and Christine Anderson, we offer single origin, specialty-grade coffee—roasted to highlight each bean’s unique character.
+            </p>
+            <blockquote class="mt-6 pl-4 border-l-4 border-tan text-espresso/90 italic">"Mukwano gwange means 'my friend' in Luganda."</blockquote>
+            <a href="about.html" class="inline-block mt-6 text-primary font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-gold rounded">Read our full story →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscription CTA: full-bleed -->
+    <section class="subscription-cta relative py-24 md:py-32 overflow-hidden animate-on-scroll">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/beans1.png');"></div>
+      <div class="absolute inset-0 bg-espresso/70"></div>
+      <div class="relative z-10 max-w-3xl mx-auto px-4 text-center text-warm-white">
+        <h2 class="font-heading font-semibold text-3xl md:text-4xl">Never run out of great coffee</h2>
+        <p class="mt-4 text-cream/95 text-lg">Subscribe for $14.50 per bag. We roast and ship on the first Monday of each month. Local delivery in Casper & Rawlins, or flat-rate shipping.</p>
+        <a href="subscribe.html" class="inline-flex items-center justify-center mt-8 px-8 py-4 rounded-lg bg-tan text-espresso font-semibold hover:bg-cream transition">Sign up for a subscription</a>
+      </div>
+    </section>
+
+    <!-- Visit Us -->
+    <section class="py-16 md:py-24 bg-cream animate-on-scroll" id="visit">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-3xl md:text-4xl text-espresso text-center">Visit Us</h2>
+        <p class="mt-2 text-center text-espresso/80">1410 W Pine St Unit A, Rawlins, WY 82301</p>
+        <div class="mt-8 grid md:grid-cols-2 gap-8 items-start">
+          <div class="map-container aspect-[4/3] md:aspect-auto md:min-h-[320px]">
+            <iframe
+              src="https://www.google.com/maps?q=1410+W+Pine+St+Unit+A+Rawlins+WY+82301&output=embed"
+              width="100%"
+              height="100%"
+              style="border:0; min-height: 300px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mukwano Coffee location"
+            ></iframe>
+          </div>
+          <div class="bg-warm-white rounded-xl p-6 border border-tan/30">
+            <h3 class="font-heading font-semibold text-xl text-espresso">Hours</h3>
+            <ul class="mt-3 space-y-1 text-espresso/90">
+              <li>Monday – Friday: 6:00 am – 2:00 pm</li>
+              <li>Saturday: 8:00 am – 2:00 pm</li>
+              <li>Sunday: Closed</li>
+            </ul>
+            <p class="mt-4 text-espresso/80 text-sm">Coffee trailer hours may vary in summer; check <a href="find-us.html" class="text-primary underline hover:no-underline">Find Us</a> for details.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram: latest post embed + follow -->
+    <section class="py-16 md:py-24 bg-warm-white animate-on-scroll" id="instagram-section">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-3xl md:text-4xl text-espresso text-center">Follow along</h2>
+        <p class="mt-2 text-center text-espresso/80">See what’s brewing at <a href="https://instagram.com/mukwanocoffee" class="text-primary font-medium hover:underline" target="_blank" rel="noopener">@mukwanocoffee</a></p>
+        <div id="instagram-embed-container" class="mt-8 flex justify-center min-h-[400px]">
+          <div class="instagram-embed-placeholder flex flex-col items-center justify-center gap-4 p-6 rounded-2xl border-2 border-tan/40 bg-cream/50 w-full max-w-md">
+            <p class="text-espresso/80 text-sm">Loading latest post…</p>
+          </div>
+        </div>
+        <div id="instagram-fallback" class="hidden mt-8">
+          <a href="https://instagram.com/mukwanocoffee" target="_blank" rel="noopener" class="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 rounded-2xl border-2 border-tan/40 bg-cream/50 hover:border-tan transition">
+            <span class="text-2xl font-heading font-semibold text-espresso">@mukwanocoffee</span>
+            <span class="text-primary text-sm font-medium">Follow on Instagram →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact snippet -->
+    <section class="py-16 md:py-24 bg-cream animate-on-scroll">
+      <div class="max-w-xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-3xl text-espresso text-center">Get in touch</h2>
+        <p class="mt-2 text-center text-espresso/80">Questions? Want to order or subscribe? We’d love to hear from you.</p>
+        <form action="https://formspree.io/f/mvoejqej" method="POST" class="mt-8 space-y-4">
+          <input type="hidden" name="_subject" value="Mukwano Coffee website contact" />
+          <label class="block">
+            <span class="block text-sm font-medium text-espresso mb-1">Name</span>
+            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-tan/50 bg-warm-white text-espresso focus:ring-2 focus:ring-primary focus:border-primary" />
+          </label>
+          <label class="block">
+            <span class="block text-sm font-medium text-espresso mb-1">Email</span>
+            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-tan/50 bg-warm-white text-espresso focus:ring-2 focus:ring-primary focus:border-primary" />
+          </label>
+          <label class="block">
+            <span class="block text-sm font-medium text-espresso mb-1">Message</span>
+            <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-tan/50 bg-warm-white text-espresso focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+          </label>
+          <button type="submit" class="w-full py-3.5 rounded-lg bg-primary text-warm-white font-semibold hover:bg-espresso transition">Send message</button>
+        </form>
+        <p class="mt-4 text-center text-sm text-espresso/70">Prefer to pay with <span class="bitcoin-cta inline-flex items-center gap-1 text-gold"><svg class="bitcoin-icon w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>Bitcoin?</span> <a href="contact.html" class="font-medium hover:underline text-gold">Contact us</a> and we’ll send an invoice.</p>
+        <p class="mt-6 text-center text-espresso/80">
+          <a href="tel:3073285021" class="font-medium">(307) 328-5021</a> · <a href="mailto:mukwanocoffee@gmail.com" class="font-medium">mukwanocoffee@gmail.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-espresso text-cream py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img src="images/logo.png" alt="" class="h-10 w-10" aria-hidden="true" />
+            <span class="font-heading font-semibold text-warm-white">Mukwano Coffee</span>
+          </a>
+          <p class="mt-2 text-cream/80 text-sm">1410 W Pine St Unit A, Rawlins, WY 82301</p>
+          <p class="text-cream/80 text-sm"><a href="tel:3073285021" class="hover:text-gold">(307) 328-5021</a></p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-warm-white mb-2">Hours</p>
+          <p class="text-cream/80 text-sm">Mon–Fri 6am–2pm · Sat 8am–2pm · Sun closed</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-warm-white mb-2">Follow us</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://instagram.com/mukwanocoffee" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com/mukwanocoffee" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://twitter.com/MukwanoCoffee" target="_blank" rel="noopener" aria-label="X">X</a>
+            <a href="https://www.tripadvisor.com/Restaurant_Review-g60539-d23035979-Reviews-Mukwano_Coffee-Rawlins_Wyoming.html" target="_blank" rel="noopener" aria-label="TripAdvisor">TripAdvisor</a>
+            <a href="https://www.yelp.com" target="_blank" rel="noopener" aria-label="Yelp">Yelp</a>
+          </div>
+          <p class="mt-3 footer-bitcoin text-sm">
+            <svg class="bitcoin-icon w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>
+            We accept Bitcoin
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 pt-6 border-t border-cream/20 text-cream/60 text-sm text-center">
+        <a href="#" class="hover:text-cream/80">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

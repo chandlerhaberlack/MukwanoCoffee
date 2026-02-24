@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Find Us | Mukwano Coffee</title>
+  <meta name="description" content="Visit our roastery in Rawlins, WY. Find our coffee in Casper, Sinclair, Saratoga, and Brooklyn, NY." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6B4226',
+            tan: '#C8A882',
+            cream: '#F5F0E8',
+            'warm-white': '#FDFBF7',
+            espresso: '#2C1810',
+            gold: '#D4A04A',
+            sage: '#7A8B6F',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="font-body text-espresso bg-warm-white antialiased">
+  <div id="nav-backdrop" class="fixed inset-0 bg-espresso/50 z-40 hidden md:hidden" aria-hidden="true"></div>
+
+  <header class="sticky top-0 z-50 bg-warm-white/95 backdrop-blur border-b border-tan/30">
+    <nav class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16 md:h-18">
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="images/logo.png" alt="Mukwano Coffee" class="h-10 w-10 md:h-12 md:w-12" />
+        <span class="font-heading font-semibold text-primary text-lg md:text-xl">Mukwano Coffee</span>
+      </a>
+      <button id="nav-toggle" type="button" class="md:hidden p-2 rounded-lg text-espresso hover:bg-cream" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div id="nav-menu" class="nav-closed fixed md:relative top-0 right-0 h-full w-72 md:w-auto md:flex md:items-center md:gap-6 bg-cream md:bg-transparent shadow-xl md:shadow-none pt-20 md:pt-0 px-6 md:px-0 transition-transform duration-300 ease-out md:transform-none">
+        <a href="about.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">About</a>
+        <a href="shop.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Shop</a>
+        <a href="subscribe.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Subscribe</a>
+        <a href="find-us.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Find Us</a>
+        <a href="wholesale.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Wholesale</a>
+        <a href="contact.html" class="block py-3 md:py-0 md:inline text-espresso hover:text-primary font-medium">Contact</a>
+        <a href="https://btcpay.sats.coffee/apps/4J23e5VN89CQs7qpyYuzK5J6HXRQ/pos" target="_blank" rel="noopener" class="nav-bitcoin-link inline-flex items-center gap-1.5 mt-2 md:mt-0">
+          <svg class="bitcoin-icon w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>
+          Pay with Bitcoin
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="py-8 md:py-12 bg-cream">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1 class="font-heading font-bold text-3xl md:text-4xl text-espresso">Find Us</h1>
+        <p class="mt-2 text-espresso/80">Our roastery, partners, and where to try our coffee.</p>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-2xl text-espresso">Roastery &amp; Coffee Shop</h2>
+        <div class="mt-4 grid md:grid-cols-2 gap-8 items-start">
+          <div class="map-container aspect-[4/3] md:aspect-auto md:min-h-[280px]">
+            <iframe
+              src="https://www.google.com/maps?q=1410+W+Pine+St+Unit+A+Rawlins+WY+82301&output=embed"
+              width="100%"
+              height="100%"
+              style="border:0; min-height: 260px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mukwano Coffee Rawlins"
+            ></iframe>
+          </div>
+          <div>
+            <p class="font-medium text-espresso">1410 W Pine St Unit A, Rawlins, WY 82301</p>
+            <p class="mt-2 text-espresso/85">Main roastery and coffee trailer.</p>
+            <p class="mt-4 text-sm font-medium text-espresso">Shop hours</p>
+            <p class="text-sm text-espresso/80">Mon–Fri 6am–2pm · Sat 8am–2pm · Sun closed</p>
+            <p class="mt-2 text-sm text-espresso/80">Trailer: Fri 5pm–8pm, Sat 8am–8pm in season.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12 bg-cream">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-2xl text-espresso mb-6">Where to buy our coffee</h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="font-heading font-semibold text-lg text-primary">Casper, Wyoming</h3>
+            <div class="mt-3 rounded-xl bg-warm-white border border-tan/30 p-4">
+              <p class="font-medium">Alpenglow Apothecary</p>
+              <p class="text-espresso/80 text-sm">120 E 2nd St, Casper, WY 82601</p>
+              <p class="text-espresso/80 text-sm">(307) 234-4196 · Bulk coffee</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading font-semibold text-lg text-primary">Saratoga, Wyoming</h3>
+            <div class="mt-3 space-y-3">
+              <div class="rounded-xl bg-warm-white border border-tan/30 p-4">
+                <p class="font-medium">Firewater Public House</p>
+                <p class="text-espresso/80 text-sm">110 E Main Ave, Saratoga, WY 82331 · (307) 326-3473</p>
+              </div>
+              <div class="rounded-xl bg-warm-white border border-tan/30 p-4">
+                <p class="font-medium">Lollypops</p>
+                <p class="text-espresso/80 text-sm">107 East Bridge, Saratoga, WY 82331 · (307) 326-5020</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading font-semibold text-lg text-primary">Rawlins, Wyoming</h3>
+            <div class="mt-3 rounded-xl bg-warm-white border border-tan/30 p-4">
+              <p class="font-medium">Geek-ish Things</p>
+              <p class="text-espresso/80 text-sm">208 W Cedar St, Rawlins, WY 82301 · (307) 370-0190 · Retail</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading font-semibold text-lg text-primary">Sinclair, Wyoming</h3>
+            <p class="mt-2 text-espresso/80">Find our coffee at select Sinclair locations.</p>
+          </div>
+          <div>
+            <h3 class="font-heading font-semibold text-lg text-primary">Brooklyn, New York</h3>
+            <div class="mt-3 rounded-xl bg-warm-white border border-tan/30 p-4">
+              <p class="font-medium">Honey &amp; Roses Coffee Co.</p>
+              <p class="text-espresso/80 text-sm">Subscription hub—Mukwano and other roasters. <a href="http://www.honeyandrosescoffee.com/" target="_blank" rel="noopener" class="text-primary font-medium hover:underline">honeyandrosescoffee.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-2xl text-espresso mb-6">On the air</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card-hover rounded-xl bg-cream border border-tan/30 p-6">
+            <h3 class="font-heading font-semibold text-lg text-primary">The Gut Check Podcast</h3>
+            <p class="mt-2 text-espresso/85 text-sm">Humor, energy drinks, tacos, Die Hard, Downton Abbey, cigars, and satirical writing—Ted Kluck and Zac Bartels.</p>
+            <a href="https://www.gutcheckpress.com/" target="_blank" rel="noopener" class="inline-block mt-3 text-primary font-medium hover:underline">gutcheckpress.com →</a>
+          </div>
+          <div class="card-hover rounded-xl bg-cream border border-tan/30 p-6">
+            <h3 class="font-heading font-semibold text-lg text-primary">The Reformatory Podcast</h3>
+            <p class="mt-2 text-espresso/85 text-sm">For the local church, by the local church. Hosted by Josh Lofthus and Jack Barry.</p>
+            <a href="https://www.joshlofthus.com/the-reformatory-podcast-2/" target="_blank" rel="noopener" class="inline-block mt-3 text-primary font-medium hover:underline">Listen →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 md:py-12 bg-cream">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-heading font-semibold text-2xl text-espresso mb-4">Partners</h2>
+        <p class="text-espresso/85">We partner with <strong>Simply Good Coffee</strong> for home brewers and recommend their gear for the best cup at home. We’re also part of <strong>Honey &amp; Roses Coffee Co.</strong> subscription hub in NYC.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-espresso text-cream py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <img src="images/logo.png" alt="" class="h-10 w-10" aria-hidden="true" />
+            <span class="font-heading font-semibold text-warm-white">Mukwano Coffee</span>
+          </a>
+          <p class="mt-2 text-cream/80 text-sm">1410 W Pine St Unit A, Rawlins, WY 82301</p>
+          <p class="text-cream/80 text-sm"><a href="tel:3073285021" class="hover:text-gold">(307) 328-5021</a></p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-warm-white mb-2">Hours</p>
+          <p class="text-cream/80 text-sm">Mon–Fri 6am–2pm · Sat 8am–2pm · Sun closed</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-warm-white mb-2">Follow us</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://instagram.com/mukwanocoffee" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com/mukwanocoffee" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://twitter.com/MukwanoCoffee" target="_blank" rel="noopener" aria-label="X">X</a>
+            <a href="https://www.tripadvisor.com/Restaurant_Review-g60539-d23035979-Reviews-Mukwano_Coffee-Rawlins_Wyoming.html" target="_blank" rel="noopener" aria-label="TripAdvisor">TripAdvisor</a>
+            <a href="https://www.yelp.com" target="_blank" rel="noopener" aria-label="Yelp">Yelp</a>
+          </div>
+          <p class="mt-3 footer-bitcoin text-sm">
+            <svg class="bitcoin-icon w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548zm-6.35-4.613c.24-1.59-.97-2.45-2.64-3.03l.54-2.15-1.32-.33-.52 2.11c-.35-.09-.71-.17-1.08-.26l.53-2.12-1.31-.33-.54 2.15c-.29-.07-.57-.13-.84-.2l-1.84-.46-.35 1.41s.97.22.95.23c.53.13.63.5.61.79l-.61 2.45c.04.01.08.02.08.02l-.08-.02-.74 2.96c-.06.14-.2.35-.52.27.01.02-.96-.24-.96-.24l-.66 1.51 1.72.43c.32.08.63.16.94.24l-.55 2.19 1.32.33.54-2.15c.36.1.71.18 1.05.26l-.54 2.14 1.31.33.55-2.2c2.28.43 4 .26 4.72-1.8.58-1.65-.03-2.6-1.22-3.23.87-.2 1.56-.76 1.73-1.93zm-2.95 4.22c-.36 1.44-2.8.66-3.59.47l.64-2.56c.79.2 3.34.6 2.95 2.09zm.36-3.46c-.33 1.32-2.38.65-3.04.49l.58-2.32c.66.16 2.82.5 2.46 1.83z"/></svg>
+            We accept Bitcoin
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 pt-6 border-t border-cream/20 text-cream/60 text-sm text-center"><a href="#" class="hover:text-cream/80">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

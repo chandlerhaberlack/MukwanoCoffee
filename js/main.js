@@ -1,0 +1,87 @@
+/* Mukwano Coffee - main.js */
+(function () {
+  'use strict';
+
+  var navToggle = document.getElementById('nav-toggle');
+  var navMenu = document.getElementById('nav-menu');
+  var navBackdrop = document.getElementById('nav-backdrop');
+  var body = document.body;
+
+  function openNav() {
+    if (navMenu) { navMenu.classList.remove('nav-closed'); navMenu.classList.add('nav-open'); }
+    if (navBackdrop) navBackdrop.classList.remove('hidden');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    if (navMenu) { navMenu.classList.remove('nav-open'); navMenu.classList.add('nav-closed'); }
+    if (navBackdrop) navBackdrop.classList.add('hidden');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  }
+
+  if (navToggle) navToggle.addEventListener('click', function () {
+    if (navToggle.getAttribute('aria-expanded') === 'true') closeNav();
+    else openNav();
+  });
+  if (navBackdrop) navBackdrop.addEventListener('click', closeNav);
+
+  var navLinks = document.querySelectorAll('#nav-menu a');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (window.innerWidth < 768) closeNav();
+    });
+  });
+
+  /* Scroll-triggered animations */
+  var animated = document.querySelectorAll('.animate-on-scroll');
+  if (animated.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+    animated.forEach(function (el) { observer.observe(el); });
+  }
+
+  /* Instagram: fetch latest post URL, then embed via oEmbed */
+  var instagramContainer = document.getElementById('instagram-embed-container');
+  var instagramFallback = document.getElementById('instagram-fallback');
+  if (instagramContainer) {
+    var apiUrl = (typeof window.MUKWANO_INSTAGRAM_API === 'string' && window.MUKWANO_INSTAGRAM_API)
+      ? window.MUKWANO_INSTAGRAM_API
+      : '/api/instagram-latest';
+
+    fetch(apiUrl)
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+      .then(function (data) { return data && data.url ? data.url : Promise.reject(); })
+      .then(function (postUrl) {
+        return new Promise(function (resolve, reject) {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://api.instagram.com/oembed?url=' + encodeURIComponent(postUrl) + '&omitscript=true&maxwidth=540&callback=instEmbedCallback';
+          window.instEmbedCallback = function (oembed) {
+            if (oembed && oembed.html) {
+              instagramContainer.innerHTML = '<div class="instagram-embed-wrapper flex justify-center">' + oembed.html + '</div>';
+              instagramContainer.querySelector('.instagram-embed-wrapper').classList.remove('instagram-embed-wrapper');
+              if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+                var ig = document.createElement('script');
+                ig.async = true;
+                ig.src = '//www.instagram.com/embed.js';
+                document.body.appendChild(ig);
+              }
+              resolve();
+            } else reject();
+          };
+          document.head.appendChild(script);
+        });
+      })
+      .catch(function () {
+        instagramContainer.innerHTML = '';
+        if (instagramFallback) instagramFallback.classList.remove('hidden');
+      });
+  }
+})();
